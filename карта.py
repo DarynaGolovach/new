@@ -7,28 +7,28 @@ def luhn_algorithm(card_number):
     return checksum % 10 == 0
 
 def validate_card():
-    card_number = entry_card_number.get().replace(" ", "") 
+    card_number = entry_card_number.get().replace(" ", "") # Р’РёРґР°Р»СЏС”РјРѕ РїСЂРѕР±С–Р»Рё, СЏРєС‰Рѕ РІРѕРЅРё РїСЂРёСЃСѓС‚РЅС–
     if card_number.isdigit():
         if luhn_algorithm(card_number):
-            messagebox.showinfo("Результат", "Номер картки валідний.")
+            messagebox.showinfo("Р РµР·СѓР»СЊС‚Р°С‚", "РќРѕРјРµСЂ РєР°СЂС‚РєРё РІР°Р»С–РґРЅРёР№.")
         else:
-            messagebox.showwarning("Результат", "Номер картки не валідний.")
+            messagebox.showwarning("Р РµР·СѓР»СЊС‚Р°С‚", "РќРѕРјРµСЂ РєР°СЂС‚РєРё РЅРµ РІР°Р»С–РґРЅРёР№.")
     else:
-        messagebox.showerror("Помилка", "Введено неправильний номер картки.")
+        messagebox.showerror("РџРѕРјРёР»РєР°", "Р’РІРµРґРµРЅРѕ РЅРµРїСЂР°РІРёР»СЊРЅРёР№ РЅРѕРјРµСЂ РєР°СЂС‚РєРё.")
 
-
+# РЎС‚РІРѕСЂРµРЅРЅСЏ РІС–РєРЅР°
 root = tk.Tk()
-root.title("Перевірка валідності номера кредитної картки")
+root.title("РџРµСЂРµРІС–СЂРєР° РІР°Р»С–РґРЅРѕСЃС‚С– РЅРѕРјРµСЂР° РєСЂРµРґРёС‚РЅРѕС— РєР°СЂС‚РєРё")
 
-
-label_card_number = tk.Label(root, text="Номер картки:")
+# РЎС‚РІРѕСЂРµРЅРЅСЏ РµР»РµРјРµРЅС‚С–РІ С–РЅС‚РµСЂС„РµР№СЃСѓ
+label_card_number = tk.Label(root, text="РќРѕРјРµСЂ РєР°СЂС‚РєРё:")
 label_card_number.grid(row=0, column=0, padx=10, pady=5)
 
 entry_card_number = tk.Entry(root)
 entry_card_number.grid(row=0, column=1, padx=10, pady=5)
 
-button_validate = tk.Button(root, text="Перевірити", command=validate_card)
+button_validate = tk.Button(root, text="РџРµСЂРµРІС–СЂРёС‚Рё", command=validate_card)
 button_validate.grid(row=1, column=0, columnspan=2, padx=10, pady=5)
 
-
+# Р—Р°РїСѓСЃРє РіРѕР»РѕРІРЅРѕРіРѕ С†РёРєР»Сѓ РїСЂРѕРіСЂР°РјРё
 root.mainloop()
